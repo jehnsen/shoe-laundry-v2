@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* The original static build lives here for reference — keep it out of class scanning. */
+@source not "../legacy-static";
+
+@theme {
+  /* Neutrals — cool, airy navy */
+  --color-ink: #0f1b34;
+  --color-ink-2: #1d2c4f;
+  --color-body: #2b3a55;
+  --color-muted: #5f6c85;
+  --color-line: #e2e7f0;
+  --color-tint: #f3f7fb;
+
+  /* Text on dark (ink) backgrounds */
+  --color-haze-100: #dde4f0;
+  --color-haze-300: #c3cde0;
+  --color-haze-400: #a7b3c9;
+  --color-haze-500: #8e9ab3;
+
+  /* Brand — fresh aqua ("bubbles") */
+  --color-brand: #0a7ea4;
+  --color-brand-600: #086a8a;
+  --color-brand-50: #e7f5fa;
+  --color-brand-100: #c8e9f4;
+  --color-brand-light: #8edcf2;
+
+  /* Accent — lavender ("scented"), also used for shoe care */
+  --color-shoe: #6a52c7;
+  --color-shoe-50: #f1eefc;
+  --color-shoe-100: #ddd6f7;
+
+  --color-gold: #f4b740;
+  --color-danger: #c9382f;
+
+  --shadow-soft: 0 1px 2px rgb(15 27 52 / 0.06), 0 1px 3px rgb(15 27 52 / 0.05);
+  --shadow-card: 0 4px 10px rgb(15 27 52 / 0.05), 0 12px 32px rgb(15 27 52 / 0.08);
+  --shadow-lift: 0 10px 24px rgb(15 27 52 / 0.08), 0 30px 70px rgb(15 27 52 / 0.14);
+  --shadow-brand: 0 6px 16px -6px rgb(10 126 164 / 0.55);
+
+  --ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 1.8s ease-out infinite;
+  --animate-progress: progress 2.6s cubic-bezier(0.2, 0.7, 0.2, 1) infinite alternate;
+  --animate-fade-up: fade-up 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  --animate-bubble: bubble-drift 9s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes pulse-ring {
+    from { transform: scale(1); opacity: 0.7; }
+    to { transform: scale(3); opacity: 0; }
+  }
+  @keyframes progress {
+    from { width: 25%; }
+    to { width: 80%; }
+  }
+  @keyframes bubble-drift {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(6px, -16px, 0); }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------- Layout helpers ---------- */
+@utility wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+}
+
+@utility section-y {
+  padding-block: clamp(64px, 9vw, 112px);
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-base leading-relaxed text-body antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 {
+    @apply leading-[1.15] tracking-tight text-ink;
+  }
+  :focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-brand) 55%, transparent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* ---------- Scroll reveal (driven by <RevealObserver />) ---------- */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .reveal {
+    transition:
+      opacity 0.7s var(--ease-soft),
+      transform 0.7s var(--ease-soft);
+  }
+  .reveal:not([data-visible]) {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+/* ---------- Decorative soap bubbles (see <Bubbles />) ---------- */
+.bubble {
+  --tint: var(--color-brand);
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 32% 28%, rgb(255 255 255 / 0.95) 0 7%, rgb(255 255 255 / 0.35) 20%, transparent 46%),
+    radial-gradient(circle at 50% 50%, transparent 52%, color-mix(in srgb, var(--tint) 24%, transparent) 100%);
+  border: 1px solid color-mix(in srgb, var(--tint) 28%, white);
+  box-shadow: inset -6px -8px 18px color-mix(in srgb, var(--tint) 14%, transparent);
+}
+.bubble[data-tint="shoe"] { --tint: var(--color-shoe); }
+/* On dark backgrounds: mostly clear, with a bright rim and two small reflections. */
+.bubble[data-tint="light"] {
+  --tint: var(--color-brand-light);
+  border-color: rgb(255 255 255 / 0.2);
+  box-shadow: none;
+  background:
+    radial-gradient(circle at 30% 26%, rgb(255 255 255 / 0.45) 0 5%, transparent 15%),
+    radial-gradient(circle at 70% 76%, rgb(255 255 255 / 0.12) 0 5%, transparent 13%),
+    radial-gradient(circle at 50% 50%, transparent 62%, color-mix(in srgb, var(--tint) 14%, transparent) 100%);
+}
+
+/* ---------- Hero grid backdrop ---------- */
+.hero-grid-bg {
+  background-image:
+    linear-gradient(rgb(15 27 52 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(15 27 52 / 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 70% 60% at 75% 40%, #000 20%, transparent 75%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
