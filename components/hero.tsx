@@ -39,7 +39,7 @@ export function Hero() {
             {site.tagline}
           </Eyebrow>
           <h1 className="text-[clamp(34px,5.6vw,62px)] leading-[1.05] font-extrabold tracking-[-0.035em]">
-            Fresh scents. Spotless shoes.{" "}
+            Philippine Shoe Cleaning Service.{" "}
             <span className="block bg-linear-to-r from-brand to-shoe bg-clip-text pb-1 text-transparent">One trusted team.</span>
           </h1>
           <p className="mx-auto mt-5 max-w-[540px] text-[clamp(17px,1.6vw,19px)] text-muted lg:mx-0">
