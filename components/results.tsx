@@ -19,8 +19,8 @@ export function Results() {
           <Eyebrow tone="light">The difference</Eyebrow>
           <h2 className="text-[clamp(28px,4vw,42px)] font-extrabold text-white">Restored, not just rinsed.</h2>
           <p className="mt-3.5 text-[17px] text-haze-400">
-            Drag the slider to see a typical deep clean and unyellowing treatment. Every pair is photographed on arrival
-            and on completion, so you can see exactly what we did.
+            Drag the slider to explore worn and fresh white sneaker examples. Our deep cleaning and sole care
+            target built-up dirt, scuffs and discolouration to help your favourites look their best.
           </p>
 
           <ul className="mx-auto mt-9 grid max-w-[520px] gap-[22px] text-left lg:mx-0">

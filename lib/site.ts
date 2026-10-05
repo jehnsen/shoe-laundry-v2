@@ -13,9 +13,9 @@ export const site = {
   description:
     "Fresh-scented laundry, dry cleaning and professional shoe care with free pickup and delivery. Wash & fold in your choice of signature scent, pressing, sneaker deep cleaning and restoration.",
   phone: "(555) 012-3456",
-  phoneHref: "tel:+15550123456",
-  email: "hello@scentedbubbles.co",
-  address: ["128 Market Street, Suite 4", "Springfield, ST 10010"],
+  phoneHref: "contact:+635550123456",
+  email: "contact@scentedbubbles.co",
+  address: ["Tarlac City, Tarlac, Philippines"],
   hours: ["Mon–Fri 7:00 AM – 8:00 PM", "Sat–Sun 8:00 AM – 6:00 PM"],
   freeDeliveryMin: "₱30",
   social: {
@@ -33,6 +33,25 @@ export const navLinks = [
   { href: "#faq", label: "FAQ" },
 ];
 
+export const shoeComparison = {
+  before: {
+    src: "/images/shoe-before.jpg",
+    alt: "White Nike sneakers with mud and dirt along the soles, worn outdoors",
+    photographer: "Justus Menke",
+    source: "https://unsplash.com/photos/u1AjLF5GISQ",
+    position: "50% 60%",
+  },
+  after: {
+    src: "/images/shoe-after.jpg",
+    alt: "A clean pair of white Nike Air Force 1 sneakers on a warm neutral background",
+    photographer: "Brian Hall",
+    source: "https://unsplash.com/photos/x5aavOm7PFc",
+    position: "50% 80%",
+  },
+  caption: "White leather sneakers · Deep cleaning & sole care",
+  note: "Illustrative comparison using different pairs. Photos from Unsplash.",
+};
+
 export const stats = [
   { value: 48000, suffix: "+", label: "Garments cleaned" },
   { value: 9500, suffix: "+", label: "Pairs of shoes restored" },
@@ -40,25 +59,31 @@ export const stats = [
   { value: 100, suffix: "%", label: "Satisfaction guarantee" },
 ];
 
-export type Service = { icon: IconName; title: string; body: string; meta: string };
+export type Service = {
+  icon: IconName;
+  title: string;
+  label: string;
+  body: string;
+  price: { label: string; amount: string; unit?: string };
+};
 export type Category = "clothing" | "shoes";
 
 export const services: Record<Category, Service[]> = {
   clothing: [
-    { icon: "washer", title: "Wash & Fold", body: "Everyday laundry sorted by colour and fabric, washed at the right temperature and finished in your signature scent.", meta: "From ₱1.95 / lb" },
-    { icon: "hanger", title: "Dry Cleaning", body: "Gentle solvent cleaning for suits, coats, wool and structured garments that can't go in water.", meta: "From ₱7.00 / item" },
-    { icon: "iron", title: "Pressing & Ironing", body: "Crisp, professional finishing for shirts, trousers and dresses. Returned on hangers, ready to wear.", meta: "From ₱3.50 / item" },
-    { icon: "bed", title: "Bedding & Linens", body: "Comforters, duvets, sheets and curtains washed in large-capacity machines and sanitised.", meta: "From ₱25.00 / item" },
-    { icon: "feather", title: "Delicates & Silk", body: "Hand-wash care for silk, lace, cashmere and embellished pieces, following every label instruction.", meta: "From ₱9.00 / item" },
-    { icon: "droplet", title: "Stain Treatment", body: "Targeted pre-treatment for wine, coffee, grease and ink — applied before any wash cycle.", meta: "Included with every order" },
+    { icon: "washer", title: "Wash & Fold", label: "Everyday essentials", body: "Sorted by colour and fabric, gently washed and neatly folded. Fresh laundry, finished in your signature scent.", price: { label: "From", amount: "₱1.95", unit: "/ lb" } },
+    { icon: "hanger", title: "Dry Cleaning", label: "Tailored care", body: "Specialist cleaning for suits, coats and wool. Gentle on fabrics that need a little extra care.", price: { label: "From", amount: "₱7.00", unit: "/ item" } },
+    { icon: "iron", title: "Pressing & Ironing", label: "The finishing touch", body: "Crisp shirts, smooth trousers and beautifully pressed dresses. Returned on hangers, ready to wear.", price: { label: "From", amount: "₱3.50", unit: "/ item" } },
+    { icon: "bed", title: "Bedding & Linens", label: "A fresher home", body: "A thorough wash for duvets, sheets and curtains. Cleaned and sanitised for your next cosy night in.", price: { label: "From", amount: "₱25.00", unit: "/ item" } },
+    { icon: "feather", title: "Delicates & Silk", label: "A gentler approach", body: "Careful hand-washing for silk, lace and cashmere. Every piece treated according to its care label.", price: { label: "From", amount: "₱9.00", unit: "/ item" } },
+    { icon: "droplet", title: "Stain Treatment", label: "Part of our process", body: "Targeted attention for coffee, wine, grease and ink. We treat the spots before the wash begins.", price: { label: "With every order", amount: "Included" } },
   ],
   shoes: [
-    { icon: "sneaker", title: "Sneaker Deep Clean", body: "Uppers, midsoles, outsoles, laces and insoles — cleaned by hand with pH-balanced solutions.", meta: "From ₱25.00 / pair" },
-    { icon: "shield", title: "Leather Care", body: "Cleaning, conditioning and polishing for leather shoes, boots and loafers to keep them supple.", meta: "From ₱30.00 / pair" },
-    { icon: "brush", title: "Suede & Nubuck", body: "Dry and low-moisture techniques that lift dirt without flattening the nap or causing water marks.", meta: "From ₱35.00 / pair" },
-    { icon: "sun", title: "Sole Unyellowing", body: "Oxidation treatment that brings yellowed rubber and icy soles back to their original tone.", meta: "From ₱20.00 / pair" },
-    { icon: "sparkles", title: "Repaint & Restoration", body: "Colour touch-ups, midsole repaints and scuff repair to bring worn favourites back to life.", meta: "From ₱45.00 / pair" },
-    { icon: "wind", title: "Deodorise & Protect", body: "Our Fresh Step odour-neutralising mist plus an optional water and stain repellent coating.", meta: "Add-on from ₱5.00" },
+    { icon: "sneaker", title: "Sneaker Deep Clean", label: "Fresh from every angle", body: "Uppers, soles, laces and insoles. Every part cleaned by hand with gentle, pH-balanced solutions.", price: { label: "From", amount: "₱25.00", unit: "/ pair" } },
+    { icon: "shield", title: "Leather Care", label: "Condition & revive", body: "Cleaning, conditioning and polishing for leather shoes, boots and loafers. Keep your favourites supple.", price: { label: "From", amount: "₱30.00", unit: "/ pair" } },
+    { icon: "brush", title: "Suede & Nubuck", label: "Texture matters", body: "Specialist, low-moisture care that lifts dirt while protecting the soft texture of suede and nubuck.", price: { label: "From", amount: "₱35.00", unit: "/ pair" } },
+    { icon: "sun", title: "Sole Unyellowing", label: "Brighter steps", body: "Targeted oxidation treatment to help yellowed rubber and icy soles return to their original tone.", price: { label: "From", amount: "₱20.00", unit: "/ pair" } },
+    { icon: "sparkles", title: "Repaint & Restoration", label: "Another chapter", body: "Colour touch-ups, midsole repaints and scuff repair. Thoughtful restoration for well-loved pairs.", price: { label: "From", amount: "₱45.00", unit: "/ pair" } },
+    { icon: "wind", title: "Deodorise & Protect", label: "Stay fresh for longer", body: "Fresh Step odour-neutralising mist, with an optional water and stain repellent finish.", price: { label: "Add-on from", amount: "₱5.00" } },
   ],
 };
 
@@ -134,9 +159,9 @@ export const features: { icon: IconName; title: string; body: string }[] = [
 ];
 
 export const reviews = [
-  { quote: "My shirts come back crisp and smelling of Fresh Linen all week. The weekly plan has genuinely given me my Sundays back.", name: "Marco R.", role: "Weekly Care Plan member", hue: 182 },
-  { quote: "I sent in a pair of yellowed sneakers I'd almost thrown out. They came back looking box-fresh — and they sent before and after photos.", name: "Aisha T.", role: "Sneaker restoration", hue: 222 },
-  { quote: "Reliable, on time and careful with delicate fabrics. They called before treating a stain on a silk dress — that's real professionalism.", name: "Dana L.", role: "Dry cleaning customer", hue: 32 },
+  { quote: "My shirts come back crisp and smelling of Fresh Linen all week. The weekly plan has genuinely given me my Sundays back.", name: "Jehnz E.", role: "Weekly Care Plan member", hue: 182 },
+  { quote: "I sent in a pair of yellowed sneakers I'd almost thrown out. They came back looking box-fresh — and they sent before and after photos.", name: "Wilson T.", role: "Sneaker restoration", hue: 222 },
+  { quote: "Reliable, on time and careful with delicate fabrics. They called before treating a stain on a silk dress — that's real professionalism.", name: "Joe Binay", role: "Dry cleaning customer", hue: 32 },
 ];
 
 export const faqs = [

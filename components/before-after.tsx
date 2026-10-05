@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { SneakerArt } from "@/components/sneaker-art";
+import Image from "next/image";
+import { shoeComparison } from "@/lib/site";
 
 const label = "absolute top-2.5 z-[2] pointer-events-none rounded-full px-3 py-1.5 text-[11px] font-bold tracking-[0.06em] text-white uppercase backdrop-blur-sm sm:top-4 sm:text-xs";
 
@@ -9,15 +10,23 @@ export function BeforeAfter() {
   const [pos, setPos] = useState(50);
 
   return (
-    <div className="reveal">
+    <figure className="reveal">
       <div className="relative aspect-[400/260] touch-pan-y overflow-hidden rounded-3xl shadow-[0_30px_80px_-20px_rgb(0_0_0/0.55)] select-none has-[input:focus-visible]:outline-3 has-[input:focus-visible]:outline-offset-4 has-[input:focus-visible]:outline-brand-light">
-        <SneakerArt variant="clean" role="img" aria-label="Sneaker after cleaning" className="absolute inset-0 size-full" />
-        <SneakerArt
-          variant="dirty"
-          role="img"
-          aria-label="Sneaker before cleaning"
-          className="absolute inset-0 size-full"
-          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+        <Image
+          src={shoeComparison.after.src}
+          alt={shoeComparison.after.alt}
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover"
+          style={{ objectPosition: shoeComparison.after.position }}
+        />
+        <Image
+          src={shoeComparison.before.src}
+          alt={shoeComparison.before.alt}
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover"
+          style={{ objectPosition: shoeComparison.before.position, clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         />
 
         <span className={`${label} left-2.5 bg-ink/70 sm:left-4`}>Before</span>
@@ -42,10 +51,24 @@ export function BeforeAfter() {
           value={pos}
           onChange={(e) => setPos(Number(e.target.value))}
           aria-label="Before and after comparison slider"
+          aria-valuetext={`${pos}% before photo, ${100 - pos}% after photo`}
           className="absolute inset-0 z-[3] m-0 size-full cursor-ew-resize appearance-none opacity-0"
         />
       </div>
-      <p className="mt-4 text-center text-sm text-haze-500">White leather sneakers · Deep clean + sole unyellowing · 48 hours</p>
-    </div>
+      <figcaption className="mt-4 text-center">
+        <p className="text-sm text-haze-400">{shoeComparison.caption}</p>
+        <p className="mt-2 text-xs leading-relaxed text-haze-400">{shoeComparison.note}</p>
+        <p className="mt-1 text-xs text-haze-400">
+          {[shoeComparison.before, shoeComparison.after].map((photo, index) => (
+            <span key={photo.source}>
+              {index > 0 && " · "}
+              <a href={photo.source} target="_blank" rel="noreferrer" className="underline underline-offset-4 transition-colors hover:text-white focus-visible:text-white">
+                {photo.photographer}
+              </a>
+            </span>
+          ))}
+        </p>
+      </figcaption>
+    </figure>
   );
 }
