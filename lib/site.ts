@@ -17,7 +17,7 @@ export const site = {
   email: "hello@scentedbubbles.co",
   address: ["128 Market Street, Suite 4", "Springfield, ST 10010"],
   hours: ["Mon–Fri 7:00 AM – 8:00 PM", "Sat–Sun 8:00 AM – 6:00 PM"],
-  freeDeliveryMin: "$30",
+  freeDeliveryMin: "₱30",
   social: {
     instagram: "#",
     facebook: "#",
@@ -45,20 +45,20 @@ export type Category = "clothing" | "shoes";
 
 export const services: Record<Category, Service[]> = {
   clothing: [
-    { icon: "washer", title: "Wash & Fold", body: "Everyday laundry sorted by colour and fabric, washed at the right temperature and finished in your signature scent.", meta: "From $1.95 / lb" },
-    { icon: "hanger", title: "Dry Cleaning", body: "Gentle solvent cleaning for suits, coats, wool and structured garments that can't go in water.", meta: "From $7.00 / item" },
-    { icon: "iron", title: "Pressing & Ironing", body: "Crisp, professional finishing for shirts, trousers and dresses. Returned on hangers, ready to wear.", meta: "From $3.50 / item" },
-    { icon: "bed", title: "Bedding & Linens", body: "Comforters, duvets, sheets and curtains washed in large-capacity machines and sanitised.", meta: "From $25.00 / item" },
-    { icon: "feather", title: "Delicates & Silk", body: "Hand-wash care for silk, lace, cashmere and embellished pieces, following every label instruction.", meta: "From $9.00 / item" },
+    { icon: "washer", title: "Wash & Fold", body: "Everyday laundry sorted by colour and fabric, washed at the right temperature and finished in your signature scent.", meta: "From ₱1.95 / lb" },
+    { icon: "hanger", title: "Dry Cleaning", body: "Gentle solvent cleaning for suits, coats, wool and structured garments that can't go in water.", meta: "From ₱7.00 / item" },
+    { icon: "iron", title: "Pressing & Ironing", body: "Crisp, professional finishing for shirts, trousers and dresses. Returned on hangers, ready to wear.", meta: "From ₱3.50 / item" },
+    { icon: "bed", title: "Bedding & Linens", body: "Comforters, duvets, sheets and curtains washed in large-capacity machines and sanitised.", meta: "From ₱25.00 / item" },
+    { icon: "feather", title: "Delicates & Silk", body: "Hand-wash care for silk, lace, cashmere and embellished pieces, following every label instruction.", meta: "From ₱9.00 / item" },
     { icon: "droplet", title: "Stain Treatment", body: "Targeted pre-treatment for wine, coffee, grease and ink — applied before any wash cycle.", meta: "Included with every order" },
   ],
   shoes: [
-    { icon: "sneaker", title: "Sneaker Deep Clean", body: "Uppers, midsoles, outsoles, laces and insoles — cleaned by hand with pH-balanced solutions.", meta: "From $25.00 / pair" },
-    { icon: "shield", title: "Leather Care", body: "Cleaning, conditioning and polishing for leather shoes, boots and loafers to keep them supple.", meta: "From $30.00 / pair" },
-    { icon: "brush", title: "Suede & Nubuck", body: "Dry and low-moisture techniques that lift dirt without flattening the nap or causing water marks.", meta: "From $35.00 / pair" },
-    { icon: "sun", title: "Sole Unyellowing", body: "Oxidation treatment that brings yellowed rubber and icy soles back to their original tone.", meta: "From $20.00 / pair" },
-    { icon: "sparkles", title: "Repaint & Restoration", body: "Colour touch-ups, midsole repaints and scuff repair to bring worn favourites back to life.", meta: "From $45.00 / pair" },
-    { icon: "wind", title: "Deodorise & Protect", body: "Our Fresh Step odour-neutralising mist plus an optional water and stain repellent coating.", meta: "Add-on from $5.00" },
+    { icon: "sneaker", title: "Sneaker Deep Clean", body: "Uppers, midsoles, outsoles, laces and insoles — cleaned by hand with pH-balanced solutions.", meta: "From ₱25.00 / pair" },
+    { icon: "shield", title: "Leather Care", body: "Cleaning, conditioning and polishing for leather shoes, boots and loafers to keep them supple.", meta: "From ₱30.00 / pair" },
+    { icon: "brush", title: "Suede & Nubuck", body: "Dry and low-moisture techniques that lift dirt without flattening the nap or causing water marks.", meta: "From ₱35.00 / pair" },
+    { icon: "sun", title: "Sole Unyellowing", body: "Oxidation treatment that brings yellowed rubber and icy soles back to their original tone.", meta: "From ₱20.00 / pair" },
+    { icon: "sparkles", title: "Repaint & Restoration", body: "Colour touch-ups, midsole repaints and scuff repair to bring worn favourites back to life.", meta: "From ₱45.00 / pair" },
+    { icon: "wind", title: "Deodorise & Protect", body: "Our Fresh Step odour-neutralising mist plus an optional water and stain repellent coating.", meta: "Add-on from ₱5.00" },
   ],
 };
 
@@ -78,13 +78,13 @@ export const priceLists: { category: Category; title: string; subtitle: string; 
     subtitle: "Laundry, dry cleaning & pressing",
     icon: "shirt",
     rows: [
-      { item: "Wash & fold", note: "min. 10 lb", price: "$1.95 / lb" },
-      { item: "Shirt — wash & press", price: "$3.50" },
-      { item: "Trousers — dry clean", price: "$7.00" },
-      { item: "Dress — dry clean", price: "from $12.00" },
-      { item: "2-piece suit", price: "$16.00" },
-      { item: "Coat or jacket", price: "from $18.00" },
-      { item: "Comforter / duvet", price: "from $25.00" },
+      { item: "Wash & fold", note: "min. 10 lb", price: "₱1.95 / lb" },
+      { item: "Shirt — wash & press", price: "₱3.50" },
+      { item: "Trousers — dry clean", price: "₱7.00" },
+      { item: "Dress — dry clean", price: "from ₱12.00" },
+      { item: "2-piece suit", price: "₱16.00" },
+      { item: "Coat or jacket", price: "from ₱18.00" },
+      { item: "Comforter / duvet", price: "from ₱25.00" },
     ],
   },
   {
@@ -93,13 +93,13 @@ export const priceLists: { category: Category; title: string; subtitle: string; 
     subtitle: "Cleaning, care & restoration",
     icon: "sneaker",
     rows: [
-      { item: "Basic clean", note: "uppers & midsole", price: "$15.00" },
-      { item: "Deep clean", note: "inside & out", price: "$25.00" },
-      { item: "Leather care & conditioning", price: "$30.00" },
-      { item: "Suede & nubuck", price: "$35.00" },
-      { item: "Sole unyellowing", price: "$20.00" },
-      { item: "Repaint & restoration", price: "from $45.00" },
-      { item: "Add-ons", note: "deodorise · repel · laces", price: "from $4.00" },
+      { item: "Basic clean", note: "uppers & midsole", price: "₱15.00" },
+      { item: "Deep clean", note: "inside & out", price: "₱25.00" },
+      { item: "Leather care & conditioning", price: "₱30.00" },
+      { item: "Suede & nubuck", price: "₱35.00" },
+      { item: "Sole unyellowing", price: "₱20.00" },
+      { item: "Repaint & restoration", price: "from ₱45.00" },
+      { item: "Add-ons", note: "deodorise · repel · laces", price: "from ₱4.00" },
     ],
   },
 ];
@@ -107,7 +107,7 @@ export const priceLists: { category: Category; title: string; subtitle: string; 
 export const plan = {
   name: "Weekly Care Plan",
   description: "For busy households who want laundry off their list for good.",
-  price: "$59",
+  price: "₱59",
   period: "/ month",
   features: [
     "30 lb wash & fold in your signature scent",
