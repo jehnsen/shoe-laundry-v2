@@ -26,8 +26,7 @@ export function MobileCta() {
       ([e]) => {
         bookVisible = e.isIntersecting;
         sync();
-      },
-      { threshold: 0.15 }
+      }
     );
     heroIo.observe(hero);
     bookIo.observe(book);
@@ -49,7 +48,7 @@ export function MobileCta() {
         <Icon name="phone" className="size-[18px]" />
       </a>
       <a href="#book" className={buttonClass({ className: "flex-1 py-3.5!" })}>
-        Book a free pickup
+        Schedule a pickup
       </a>
     </div>
   );

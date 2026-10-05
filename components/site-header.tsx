@@ -66,7 +66,7 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-white/85 backdrop-blur-md backdrop-saturate-150 transition-[border-color,box-shadow] duration-300 ${
+      className={`sticky top-0 z-50 border-b bg-paper/95 backdrop-blur-md transition-[border-color,box-shadow] duration-300 ${
         scrolled ? "border-line shadow-[0_4px_20px_-12px_rgb(15_27_52/0.2)]" : "border-transparent"
       }`}
     >
@@ -77,7 +77,7 @@ export function SiteHeader() {
           ref={navRef}
           id="site-nav"
           aria-label="Primary"
-          className={`fixed inset-x-0 top-16 flex flex-col gap-4 border-b border-line bg-white px-[clamp(16px,4vw,32px)] pt-4 pb-6 shadow-[0_24px_40px_-20px_rgb(15_27_52/0.25)] transition duration-200 ease-soft lg:static lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none lg:visible lg:translate-y-0 lg:opacity-100 ${
+          className={`absolute inset-x-0 top-16 flex max-h-[calc(100dvh-64px)] flex-col gap-4 overflow-y-auto overscroll-contain border-b border-line bg-paper px-[clamp(20px,4vw,32px)] pt-4 pb-6 shadow-[0_24px_40px_-20px_rgb(35_61_49/0.15)] transition duration-200 ease-soft lg:static lg:max-h-none lg:flex-row lg:items-center lg:gap-5 lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none lg:visible lg:translate-y-0 lg:opacity-100 ${
             open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"
           }`}
         >
@@ -87,7 +87,8 @@ export function SiteHeader() {
                 <a
                   href={link.href}
                   onClick={close}
-                  className={`block rounded-lg px-3 py-3.5 text-[17px] font-semibold transition-colors hover:bg-brand-50 hover:text-brand lg:py-2 lg:text-[15px] ${
+                  aria-current={current === link.href ? "location" : undefined}
+                  className={`block rounded-lg px-3 py-3.5 text-[17px] font-medium transition-colors hover:bg-brand-50 hover:text-brand lg:px-2 lg:py-3 lg:text-[13px] ${
                     current === link.href ? "bg-brand-50 text-brand" : "text-body"
                   }`}
                 >
@@ -100,13 +101,13 @@ export function SiteHeader() {
             <a
               href={site.phoneHref}
               onClick={close}
-              className="inline-flex items-center justify-center gap-1.5 p-2.5 text-base font-bold text-ink lg:hidden xl:inline-flex xl:p-0 xl:text-sm"
+              className="inline-flex items-center justify-center gap-1.5 p-2.5 text-base font-bold text-ink lg:hidden"
             >
               <Icon name="phone" className="size-4 text-brand" />
               {site.phone}
             </a>
             <a href="#book" onClick={close} className={buttonClass({ size: "sm", className: "max-lg:py-3.5 max-lg:text-base" })}>
-              Book a pickup
+              Book a pickup <Icon name="arrow" className="size-4" />
             </a>
           </div>
         </nav>

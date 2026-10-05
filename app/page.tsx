@@ -25,9 +25,10 @@ export default function Home() {
         Skip to content
       </a>
 
+      <div className="bg-brand px-4 py-2.5 text-center text-[10px] tracking-[0.08em] text-white/90 sm:text-[11px]">A little more care. A little less on your to-do list.</div>
       <SiteHeader />
 
-      <main id="main" className="pb-[76px] md:pb-0">
+      <main id="main">
         <div id="hero">
           <Hero />
           <StatsStrip />

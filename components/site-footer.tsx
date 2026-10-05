@@ -4,7 +4,7 @@ import { footerLinks, site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-ink pt-[72px] text-haze-500">
+    <footer className="bg-ink pt-[72px] pb-[calc(88px+env(safe-area-inset-bottom))] text-haze-500 md:pb-0">
       <div className="wrap grid grid-cols-2 gap-10 pb-12 md:grid-cols-3 lg:grid-cols-[1.6fr_repeat(3,1fr)]">
         <div className="col-span-full lg:col-span-1">
           <Logo tone="light" />

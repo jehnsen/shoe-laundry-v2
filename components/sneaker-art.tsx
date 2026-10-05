@@ -16,8 +16,8 @@ type Palette = {
 
 const palettes: Record<"clean" | "dirty", Palette> = {
   clean: {
-    bg: "#eaf5fa", sole: "#ffffff", soleStroke: "#cfd8e3", soleLine: "#0a7ea4", upper: "#ffffff", stroke: "#c9d3df",
-    toe: "#f3f6f9", heel: "#f3f6f9", collar: "#dfe6ee", stripe: "#6a52c7", lace: "#9aa8b8",
+    bg: "#edf1e7", sole: "#ffffff", soleStroke: "#cfd8e3", soleLine: "#54735b", upper: "#ffffff", stroke: "#cbd2c3",
+    toe: "#f3f3eb", heel: "#f3f3eb", collar: "#dfe4d5", stripe: "#8e9b7e", lace: "#9aa8b8",
   },
   dirty: {
     bg: "#e8e4dc", sole: "#e3cf9a", soleStroke: "#b9a777", soleLine: "#8a7d5f", upper: "#d9d3c7", stroke: "#a89f8e",
@@ -26,11 +26,11 @@ const palettes: Record<"clean" | "dirty", Palette> = {
 };
 
 const cleanBubbles = [
-  { cx: 322, cy: 52, r: 20, tint: "#0a7ea4" },
-  { cx: 358, cy: 30, r: 11, tint: "#6a52c7" },
-  { cx: 362, cy: 80, r: 8, tint: "#0a7ea4" },
-  { cx: 56, cy: 52, r: 13, tint: "#6a52c7" },
-  { cx: 86, cy: 30, r: 6, tint: "#0a7ea4" },
+  { cx: 322, cy: 52, r: 20, tint: "#54735b" },
+  { cx: 358, cy: 30, r: 11, tint: "#8e9b7e" },
+  { cx: 362, cy: 80, r: 8, tint: "#54735b" },
+  { cx: 56, cy: 52, r: 13, tint: "#8e9b7e" },
+  { cx: 86, cy: 30, r: 6, tint: "#54735b" },
 ];
 
 /** Side-view sneaker illustration used by the before/after slider. */

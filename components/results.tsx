@@ -17,7 +17,7 @@ export function Results() {
       <div className="wrap relative grid items-center gap-[clamp(40px,6vw,80px)] lg:grid-cols-[0.95fr_1.05fr]">
         <div className="reveal text-center lg:text-left">
           <Eyebrow tone="light">The difference</Eyebrow>
-          <h2 className="text-[clamp(28px,4vw,42px)] font-extrabold text-white">Restored, not just rinsed.</h2>
+          <h2 className="section-title text-white">Old favourites.<br /><em>A new lease on life.</em></h2>
           <p className="mt-3.5 text-[17px] text-haze-400">
             Drag the slider to see a typical deep clean and unyellowing treatment. Every pair is photographed on arrival
             and on completion, so you can see exactly what we did.

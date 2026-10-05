@@ -41,19 +41,19 @@ export function Services() {
       ))}
 
       <div className="wrap">
-        <SectionHead eyebrow="Our services" title="Two specialties. One standard of care.">
-          Clothing and footwear need very different treatment. We run dedicated stations and trained technicians for each
-          — so your silk blouse and your suede boots both get exactly what they need.
+        <SectionHead eyebrow="Considered care, for every detail" title="Good care looks good on you.">
+          From your everyday favourites to your most treasured pieces.
+          A little expertise makes all the difference.
         </SectionHead>
 
         <div
           role="tablist"
           aria-label="Service categories"
-          className="reveal relative mx-auto mb-10 grid w-full max-w-[420px] grid-cols-2 rounded-full border border-line bg-tint p-[5px]"
+          className="reveal relative mx-auto mb-10 grid w-full max-w-[340px] grid-cols-2 rounded-full border border-line bg-tint p-[5px]"
         >
           <span
             aria-hidden="true"
-            className={`absolute inset-y-[5px] left-[5px] w-[calc(50%-5px)] rounded-full bg-white shadow-soft transition-transform duration-300 ease-soft ${
+            className={`absolute inset-y-[5px] left-[5px] w-[calc(50%-5px)] rounded-full bg-brand shadow-soft transition-transform duration-300 ease-soft ${
               active === "shoes" ? "translate-x-full" : ""
             }`}
           />
@@ -74,7 +74,7 @@ export function Services() {
                 onClick={() => setActive(tab.id)}
                 onKeyDown={(e) => onKeyDown(e, i)}
                 className={`relative z-[1] inline-flex items-center justify-center gap-2 rounded-full px-4 py-[11px] text-[15px] font-bold transition-colors ${
-                  selected ? "text-ink" : "text-muted hover:text-ink"
+                  selected ? "text-white" : "text-muted hover:text-ink"
                 }`}
               >
                 <Icon name={tab.icon} className="size-[18px]" />
@@ -97,14 +97,14 @@ export function Services() {
               {services[tab.id].map((s) => (
                 <article
                   key={s.title}
-                  className="flex flex-col rounded-2xl border border-line bg-white p-[22px] transition duration-300 ease-soft hover:-translate-y-1 hover:border-transparent hover:shadow-card sm:p-7"
+                  className="service-card flex flex-col rounded-xl border border-line bg-white/50 p-6 transition duration-300 ease-soft hover:-translate-y-1 hover:border-brand/30 hover:bg-white hover:shadow-soft sm:p-8"
                 >
                   <IconTile tone={tab.id === "shoes" ? "shoe" : "brand"}>
                     <Icon name={s.icon} className="size-6" />
                   </IconTile>
-                  <h3 className="mt-4 text-[19px] font-bold sm:mt-5">{s.title}</h3>
-                  <p className="mt-2 text-[15px] text-muted">{s.body}</p>
-                  <p className="mt-auto pt-[18px] text-sm font-bold text-ink">{s.meta}</p>
+                  <h3 className="mt-5 text-[19px] font-semibold">{s.title}</h3>
+                  <p className="mt-2 mb-6 text-[15px] text-muted">{s.body}</p>
+                  <a href="#book" aria-label={`Book ${s.title}`} className="mt-auto flex min-h-11 items-center justify-between gap-3 border-t border-line pt-4 text-xs font-semibold text-brand"><span>{s.meta}</span><Icon name="arrow" className="service-arrow size-5" /></a>
                 </article>
               ))}
             </div>

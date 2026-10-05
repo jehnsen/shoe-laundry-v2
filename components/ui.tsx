@@ -4,11 +4,11 @@ type ButtonVariant = "primary" | "ghost" | "light";
 type ButtonSize = "sm" | "md" | "lg";
 
 const base =
-  "group/btn inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border-[1.5px] font-bold leading-tight transition duration-200 active:translate-y-px disabled:pointer-events-none disabled:opacity-60";
+  "group/btn inline-flex min-h-11 items-center justify-center gap-3 whitespace-nowrap rounded-full border font-semibold leading-tight transition duration-200 active:translate-y-px disabled:pointer-events-none disabled:opacity-60";
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "border-transparent bg-brand text-white shadow-brand hover:bg-brand-600",
-  ghost: "border-line bg-white text-ink hover:border-ink",
+  primary: "border-transparent bg-brand text-white hover:bg-brand-600 hover:shadow-brand",
+  ghost: "border-line bg-transparent text-ink hover:border-ink hover:bg-brand-50",
   light: "border-transparent bg-white text-ink hover:bg-brand-50",
 };
 
@@ -32,7 +32,7 @@ export const arrowClass = "size-[18px] transition-transform duration-200 group-h
 export function Eyebrow({ children, tone = "brand", className = "" }: { children: ReactNode; tone?: "brand" | "light"; className?: string }) {
   return (
     <p
-      className={`mb-3.5 inline-flex items-center gap-2 text-[13px] font-bold tracking-[0.08em] uppercase ${
+      className={`mb-4 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase ${
         tone === "light" ? "text-brand-light" : "text-brand"
       } ${className}`}
     >
@@ -61,8 +61,8 @@ export function SectionHead({
       } ${className}`}
     >
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="text-[clamp(28px,4vw,42px)] font-extrabold">{title}</h2>
-      {children && <p className="mt-3.5 text-[17px] text-muted">{children}</p>}
+      <h2 className="section-title">{title}</h2>
+      {children && <p className="mx-auto mt-4 max-w-[560px] text-[15px] leading-[1.8] text-muted">{children}</p>}
     </div>
   );
 }

@@ -1,11 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
+const sans = localFont({
+  src: "./fonts/dm-sans-latin.woff2",
+  variable: "--font-dm-sans",
+  weight: "100 1000",
+  display: "swap",
+});
+
+const editorial = localFont({
+  src: [
+    { path: "./fonts/cormorant-garamond-latin.woff2", weight: "400 600", style: "normal" },
+    { path: "./fonts/cormorant-garamond-latin-italic.woff2", weight: "400 600", style: "italic" },
+  ],
+  variable: "--font-editorial",
   display: "swap",
 });
 
@@ -20,12 +30,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0f1b34",
+  themeColor: "#234d3c",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" id="top" className={jakarta.variable}>
+    <html lang="en" id="top" className={`${sans.variable} ${editorial.variable}`}>
       <body>{children}</body>
     </html>
   );
